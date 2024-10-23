@@ -1,0 +1,43 @@
+#seccionLogin {
+    background-image: url("../img/bg2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#seccionRegistro {
+    background-image: url("../img/bg3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenedorLogin {
+    background-color: rgba(255, 255, 255, 0.667);
+    border-radius: 25px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+p {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 750px) {
+    #contenedorLogin {
+        width: 70%;
+        max-width: none;
+    }
+}

@@ -1,0 +1,44 @@
+/* Vincular el CSS con la librería de Iconos de Font Awesome*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+
+
+p, h1, h2, h3 {
+    font-family: "Playwrite DE Grund", cursive;
+}
+
+a, i {
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+#imgLogo {
+    border-radius: 20px;
+}
+
+#testimonios {
+    background-image: url("../img/bg1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#contenedorTestimonio {
+    background-color: rgba(255, 255, 255, 0.547);
+}
+
+.seccionWeb {
+    background-color: #fda615;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+}
+
+#seccionContacto a {
+    color: black;
+}
+
+#seccionRedes {
+    background-color: red;
+}
