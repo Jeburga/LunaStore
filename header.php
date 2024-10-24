@@ -45,8 +45,9 @@ if (session_status() === PHP_SESSION_NONE) {
     </ul>
     
     <?php if(isset($_SESSION['user'])): ?> <!-- Muestra información solo si hay sesión -->
-    <div class="d-flex align-items-center gap-3"> <!-- Añadido gap para espaciado -->
-      <span><strong>Bienvenido, <?php echo htmlspecialchars($_SESSION['user']); ?></strong></span>
+    <div class="d-flex align-items-center gap-3">
+      <img src="./img/userlogo.png" alt="logo usuario" width="45px" style="border: solid black 1px; border-radius:5px; padding:5px;">
+      <span class="text-capitalize"><strong>Bienvenido, <?php echo htmlspecialchars($_SESSION['user']); ?></strong></span>
       <a href="./logout.php" class="btn btn-danger text-white text-decoration-none">Cerrar sesión</a>
     </div>
     <?php endif; ?>

@@ -15,6 +15,7 @@ if (isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Registro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2Q">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,10 +52,14 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <input type="submit" class="btn btn-primary mt-3" value="Ingresar">
             </form>
+            <i class='bx bx-show-alt'></i>
+            <box-icon  type="solid" name="rocket"></box-icon>
+            <box-icon  type="logo" name="facebook-square"></box-icon>
             <p class="mt-3">¿Te encuentras registrado? <a class="text-dark" href="./login.php">Conéctate</a></p>
         </div>
     </section>
 
     <?php include 'footer.php'; ?>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 </html>

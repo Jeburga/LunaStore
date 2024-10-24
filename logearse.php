@@ -17,13 +17,10 @@ $resultLogin = $sqlLogin->get_result();
 // Verificamos si hay resultados
 if ($resultLogin->num_rows > 0) {
     $_SESSION['user'] = $user;
-    // Añadamos un debug para verificar
-    var_dump($_SESSION);
     header("Location: index.php");
-    exit();
 } else {
-    header("Location: index.php?error=usuario o clave incorrecta");
-    exit();
+    $_SESSION['error'] = "El usuario y/o la contraseña ingresada son incorrectos";
+    header("Location: login.php");
 }
 
 $sqlLogin->close();

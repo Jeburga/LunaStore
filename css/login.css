@@ -35,6 +35,24 @@ p {
     font-weight: bold;
 }
 
+#visorPassword {
+    cursor: pointer;
+    height: auto;
+    width: 20px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.bx-show-alt {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
 @media screen and (max-width: 750px) {
     #contenedorLogin {
         width: 70%;
