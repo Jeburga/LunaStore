@@ -74,5 +74,6 @@ if (isset($_SESSION['error'])){
 
     <?php include 'footer.php'; ?>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="./js/log.js"></script>
 </body>
 </html>

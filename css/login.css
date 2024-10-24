@@ -35,17 +35,13 @@ p {
     font-weight: bold;
 }
 
-#visorPassword {
-    cursor: pointer;
-    height: auto;
-    width: 20px;
-}
-
 .position-relative {
     position: relative;
 }
 
-.bx-show-alt {
+.bx-show-alt, .bx-hide {
+    height: auto;
+    width: 20px;
     position: absolute;
     right: 10px;
     top: 50%;

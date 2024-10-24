@@ -23,7 +23,7 @@ if (isset($_SESSION['user'])) {
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/login.css?v=1">
 </head>
 <body>
     <?php include 'header.php'; ?>
@@ -48,18 +48,19 @@ if (isset($_SESSION['user'])) {
                 </div>
                 <div class="form-group mt-3">
                     <label class="form-label" for="inputPassword">Contraseña:</label>
-                    <input type="password" class="form-control" id="inputPassword" name="inputPassword" minlength="8" placeholder="Contraseña" required>
+                    <div class="position-relative">
+                        <input type="password" class="form-control" id="inputPassword" name="inputPassword" minlength="8" placeholder="Contraseña" required>
+                        <i class='bx bx-show-alt' id="visorPassword"></i>
+                    </div>
                 </div>
                 <input type="submit" class="btn btn-primary mt-3" value="Ingresar">
             </form>
-            <i class='bx bx-show-alt'></i>
-            <box-icon  type="solid" name="rocket"></box-icon>
-            <box-icon  type="logo" name="facebook-square"></box-icon>
             <p class="mt-3">¿Te encuentras registrado? <a class="text-dark" href="./login.php">Conéctate</a></p>
         </div>
     </section>
 
     <?php include 'footer.php'; ?>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="./js/log.js"></script>
 </body>
 </html>
