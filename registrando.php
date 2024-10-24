@@ -1,11 +1,11 @@
 <?php
 include 'db.php';
 
-$userName = $_POST['inputUser'];
+$user = $_POST['user'];
 $userEmail = $_POST['inputEmail'];
 $userPassword = $_POST['inputPassword'];
 
-$sqlVerificar = "SELECT * FROM users WHERE username = '$userName' OR email = '$userEmail'";
+$sqlVerificar = "SELECT * FROM users WHERE username = '$user' OR email = '$userEmail'";
 $resultVerificar = $conn->query($sqlVerificar);
 
 if ($resultVerificar -> num_rows > 0){
@@ -14,7 +14,7 @@ if ($resultVerificar -> num_rows > 0){
         window.location.href='registro.php';
     </script>";
 } else {
-    $sqlInsertarUsuario = "INSERT INTO users (username, email, password) VALUES ('$userName', '$userEmail', '$userPassword')";
+    $sqlInsertarUsuario = "INSERT INTO users (username, email, password) VALUES ('$user', '$userEmail', '$userPassword')";
     $resultInsertar = $conn->query($sqlInsertarUsuario);
 
     if($resultInsertar) {

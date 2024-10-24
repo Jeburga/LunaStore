@@ -1,17 +1,16 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Verificar si el usuario ya está logueado
-if (isset($_SESSION['user'])) {
-    // Mensaje de depuración para verificar si la sesión existe
-    echo "Sesión activa para el usuario: " . $_SESSION['user'];
-    header('Location: gracias.php'); // Redirigir al usuario a la página de inicio
+if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+    header("Location: index.php");
     exit();
-} else {
-    echo "No hay sesión activa.";
 }
 ?>
 
+<!DOCTYPE html>
+<!-- Resto de tu código HTML -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,14 +33,13 @@ if (isset($_SESSION['user'])) {
             <p class="mt-3"> <i class="fa-solid fa-map-pin"></i> Inicio / Login</p>
         </div>
     </section>
-
     <section id="seccionLogin">
         <div id="contenedorLogin" class="container pt-5 pb-5">
             <h3 class="text-center mb-4">Ingresa a tu cuenta</h3>
             <form action="logearse.php" method="post">
                 <div class="form-group mt-3">
-                    <label class="form-label" for="inputUser">Nombre de usuario:</label>
-                    <input type="text" class="form-control" id="inputUser" name="inputUser" required>
+                    <label class="form-label" for="user">Nombre de usuario:</label>
+                    <input type="text" class="form-control" id="user" name="user" required>
                 </div>
 
                 <div class="form-group mt-3">

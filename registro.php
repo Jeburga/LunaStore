@@ -7,8 +7,6 @@ if (isset($_SESSION['user'])) {
     echo "Sesión activa para el usuario: " . $_SESSION['user'];
     header('Location: gracias.php'); // Redirigir al usuario a la página de inicio
     exit();
-} else {
-    echo "No hay sesión activa.";
 }
 ?>
 
@@ -40,8 +38,8 @@ if (isset($_SESSION['user'])) {
             <h3>Crea tu usuario</h3>
             <form action="registrando.php" method="post">
                 <div class="form-group mt-3">
-                    <label class="form-label" for="inputUser">Nombre de usuario:</label>
-                    <input type="text" class="form-control" id="inputUser" name="inputUser" aria-describedby="emailHelp" placeholder="Ingrese su nombre de usuario" required>
+                    <label class="form-label" for="user">Nombre de usuario:</label>
+                    <input type="text" class="form-control" id="user" name="user" aria-describedby="emailHelp" placeholder="Ingrese su nombre de usuario" required>
                 </div>
                 <div class="form-group mt-3">
                     <label class="form-label" for="inputEmail">Correo electrónico:</label>
