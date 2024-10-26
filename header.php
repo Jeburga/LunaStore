@@ -20,11 +20,11 @@ if (session_status() === PHP_SESSION_NONE) {
       <li class="nav-item">
         <a class="nav-link active" href="Productos.php">Productos</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="empleados.php">Empleados</a>
+      </li>
       
       <?php if(isset($_SESSION['user'])): ?> <!-- Mostrar solo si hay sesión -->
-        <li class="nav-item">
-          <a class="nav-link active" href="empleados.php">Empleados</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link active" href="Sucursales.php">Sucursales</a>
         </li>

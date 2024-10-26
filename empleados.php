@@ -1,9 +1,15 @@
-<?php require 'db.php'; ?>
 <?php
+require 'db.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+
+$sqlEmpleados = "SELECT nombre, puesto, telefono FROM empleados WHERE nombre LIKE '%$search%'";
+$resultEmpleados = $conn->query($sqlEmpleados);
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,8 +23,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
     <?php include "header.php"; ?>
+
     <section class="seccionWeb">
         <div class="container">
             <h1>Empleados</h1>
@@ -27,27 +33,41 @@ if (session_status() === PHP_SESSION_NONE) {
     </section>
 
     <section class="seccionEmpleados">
-        <div class="container">
-            <div class="row">
-                <?php
-                if ($resultEmpleados->num_rows > 0) {
-                    while ($row = $resultEmpleados->fetch_assoc()) {
-                        echo "
-                            <div class='col-md-4 mb-4 mt-4'>
-                                <div class='card'>
-                                    <div class='card-body text-center'>
-                                        <h5 class='card-title'>" . $row["nombre"] . "</h5>
-                                        <h6 class='card-subtitle mb-2 text-muted'>" . $row["puesto"] . "</h6>
-                                        <p class='card-text'>Correo: " . $row["email"] . "</p>
-                                    </div>
-                                </div>
-                            </div>";
+        <div class="container mt-4">
+            <form class="d-flex gap-3" method="GET">
+                <input class="form-control" type="search" name="search" value="<?php echo ($search)?>" placeholder="Ingrese nombre del trabajador">
+                <input class="btn btn-outline-dark" type="submit" value="Buscar">
+            </form>
+        </div>
+
+        <div class="container mt-5 mb-5 text-center">
+            <h2 class="mt-4 mb-4">Tabla de Empleados</h2>
+            <?php if($resultEmpleados && $resultEmpleados->num_rows > 0) {
+            ?>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre del Empleado</th>
+                        <th>Cargo del Empleado</th>
+                        <th>Telefono del Empleado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($row = $resultEmpleados->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <td><?php echo ($row["nombre"])?></td>
+                        <td><?php echo ($row["puesto"])?></td>
+                        <td><?php echo ($row["telefono"])?></td>
+                    </tr>
+                    <?php 
                     }
-                } else {
-                    echo "<p>No se encontraron resultados</p>";
-                }
-                ?>
-            </div>
+                    ?>
+                </tbody>
+            </table>
+            <?php
+            }
+            ?>
         </div>
     </section>
 
