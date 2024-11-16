@@ -23,7 +23,7 @@ $resultEmpleados = $conn->query($sqlEmpleados);
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <?php include "header.php"; ?>
+    <?php require "admin_header.php"; ?>
 
     <section class="seccionWeb">
         <div class="container">

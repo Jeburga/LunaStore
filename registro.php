@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['user'])) {
     // Mensaje de depuración para verificar si la sesión existe
     echo "Sesión activa para el usuario: " . $_SESSION['user'];
-    header('Location: gracias.php'); // Redirigir al usuario a la página de inicio
+    header('Location: welcome.php'); // Redirigir al usuario a la página de inicio
     exit();
 }
 ?>

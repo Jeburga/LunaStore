@@ -19,7 +19,7 @@ if ($resultVerificar -> num_rows > 0){
 
     if($resultInsertar) {
         echo "<script>alert('¡Cuenta creada con éxito!');
-        window.location.href='gracias.php';
+        window.location.href='welcome.php';
         </script>";
     } else {
         echo "<script>

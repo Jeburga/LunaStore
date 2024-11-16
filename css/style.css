@@ -42,3 +42,7 @@ h1, h2, h3 {
 #seccionRedes {
     background-color: red;
 }
+
+.option {
+    width: 5%;
+}

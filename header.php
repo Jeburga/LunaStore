@@ -26,7 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
       
       <?php if(isset($_SESSION['user'])): ?> <!-- Mostrar solo si hay sesión -->
         <li class="nav-item">
-          <a class="nav-link active" href="Sucursales.php">Sucursales</a>
+          <a class="nav-link active" href="welcome.php">Gestionar</a>
         </li>
       <?php endif; ?>
       
