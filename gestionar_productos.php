@@ -4,6 +4,26 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Procesar crear producto desde formulario
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nombre = $_POST['nombre'];
+    $precio = $_POST['precio'];
+    $descripcion = $_POST['descripcion'];
+    $stock = $_POST['stock'];
+
+    // Insertar el nuevo empleado en la base de datos
+    $stmt = $conn->prepare("INSERT INTO productos (nombre, precio, descripcion, stock) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("sssi", $nombre, $precio, $descripcion, $stock);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Producto agregado con éxito')</script>";
+    } else {
+        echo "<script>alert('Error al agregar el producto')</script>";
+    }
+
+    $stmt->close();
+}
+
 if (!isset ($_SESSION['user'])) {
     header("Location: login.php");
     exit();
@@ -40,7 +60,7 @@ $resultProductos = $conn->query($sqlProductos);
         </div>
 
         <div class="d-flex container mt-4 justify-content-end">
-            <button class="btn btn-dark me-2">
+            <button class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#agregarProductoModal">
             <i class="fa-solid fa-user-plus"></i> Agregar Productos
             </button>
             <button class="btn btn-outline-dark">
@@ -93,6 +113,42 @@ $resultProductos = $conn->query($sqlProductos);
             }
             ?>
         </div>
+
+
+        <div class="modal fade" id="agregarProductoModal" tabindex="-1" aria-labelledby="agregarProductoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="agregarProductoModalLabel">Agregar Nuevo Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="precio" class="form-label">Precio</label>
+                                <input type="number" class="form-control" id="precio" name="precio" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="descripcion" class="form-label">Descripción</label>
+                                <input type="descripcion" class="form-control" id="descripcion" name="descripcion" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="stock" class="form-label">Stock</label>
+                                <input type="number" class="form-control" id="stock" name="stock" required>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-dark">Agregar producto</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <?php include "footer.php"; ?>
